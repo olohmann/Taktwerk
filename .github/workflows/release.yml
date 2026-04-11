@@ -1,0 +1,201 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build, Sign & Release
+    runs-on: [self-hosted, macOS, ARM64]
+    timeout-minutes: 30
+
+    env:
+      APP_NAME: Taktwerk
+      SCHEME: Taktwerk
+      PROJECT: Taktwerk.xcodeproj
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/v}"
+          echo "version=$TAG" >> "$GITHUB_OUTPUT"
+          echo "tag=v$TAG" >> "$GITHUB_OUTPUT"
+          echo "Building version: $TAG"
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Import signing certificate
+        env:
+          APPLE_CERTIFICATE_P12: ${{ secrets.APPLE_CERTIFICATE_P12 }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: |
+          CERTIFICATE_PATH="$RUNNER_TEMP/certificate.p12"
+          KEYCHAIN_PATH="$RUNNER_TEMP/build.keychain-db"
+
+          echo "$APPLE_CERTIFICATE_P12" | base64 --decode -o "$CERTIFICATE_PATH"
+
+          # Save original keychain search list to restore on cleanup
+          security list-keychain -d user | tr -d '"' | tr '\n' '|' > "$RUNNER_TEMP/original-keychains.txt"
+
+          # Ensure login keychain is in search list (may have been removed by previous failed runs)
+          LOGIN_KEYCHAIN="$HOME/Library/Keychains/login.keychain-db"
+          if [ -f "$LOGIN_KEYCHAIN" ]; then
+            CURRENT=$(security list-keychain -d user | tr -d '"')
+            if ! echo "$CURRENT" | grep -q "login.keychain"; then
+              security list-keychain -d user -s $CURRENT "$LOGIN_KEYCHAIN"
+            fi
+          fi
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Import Apple intermediate certificates for chain validation
+          curl -sL "https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer" -o "$RUNNER_TEMP/DevIDG2.cer"
+          curl -sL "https://www.apple.com/appleca/AppleIncRootCertificate.cer" -o "$RUNNER_TEMP/AppleRoot.cer"
+          security import "$RUNNER_TEMP/DevIDG2.cer" -k "$KEYCHAIN_PATH" -T /usr/bin/codesign
+          security import "$RUNNER_TEMP/AppleRoot.cer" -k "$KEYCHAIN_PATH" -T /usr/bin/codesign
+
+          # Import Developer ID certificate
+          security import "$CERTIFICATE_PATH" \
+            -P "$APPLE_CERTIFICATE_PASSWORD" \
+            -A \
+            -t cert \
+            -f pkcs12 \
+            -k "$KEYCHAIN_PATH"
+
+          security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Prepend build keychain to search list (preserving login + system keychains)
+          LOGIN_KEYCHAIN="$HOME/Library/Keychains/login.keychain-db"
+          security list-keychain -d user -s "$KEYCHAIN_PATH" "$LOGIN_KEYCHAIN" /Library/Keychains/System.keychain
+
+          # Debug: show keychain search list
+          echo "=== Keychain search list ==="
+          security list-keychain -d user
+
+      - name: Build Release
+        run: |
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -destination "platform=macOS,arch=arm64" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            -quiet \
+            MARKETING_VERSION="${{ steps.version.outputs.version }}" \
+            CURRENT_PROJECT_VERSION="${{ github.run_number }}" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="Developer ID Application" \
+            DEVELOPMENT_TEAM="${{ secrets.APPLE_TEAM_ID }}" \
+            OTHER_CODE_SIGN_FLAGS="--timestamp" \
+            CODE_SIGN_INJECT_BASE_ENTITLEMENTS=NO \
+            build
+
+      - name: Locate app bundle
+        id: app
+        run: |
+          APP_PATH=$(find "$RUNNER_TEMP/DerivedData" -name "$APP_NAME.app" -type d | head -1)
+          echo "path=$APP_PATH" >> "$GITHUB_OUTPUT"
+          echo "Found app at: $APP_PATH"
+
+      - name: Create DMG
+        id: dmg
+        run: |
+          DMG_NAME="${APP_NAME}-${{ steps.version.outputs.version }}.dmg"
+          DMG_PATH="$RUNNER_TEMP/$DMG_NAME"
+          RW_DMG="$RUNNER_TEMP/rw-${DMG_NAME}"
+          STAGING_DIR="$RUNNER_TEMP/dmg-staging"
+
+          # Prepare staging directory
+          mkdir -p "$STAGING_DIR/.background"
+          cp -R "${{ steps.app.outputs.path }}" "$STAGING_DIR/"
+          ln -s /Applications "$STAGING_DIR/Applications"
+          cp scripts/dmg-background.png "$STAGING_DIR/.background/"
+          cp scripts/dmg-ds-store "$STAGING_DIR/.DS_Store"
+
+          # Create writable DMG
+          hdiutil create \
+            -volname "$APP_NAME" \
+            -srcfolder "$STAGING_DIR" \
+            -ov \
+            -format UDRW \
+            "$RW_DMG"
+
+          # Convert to compressed read-only DMG
+          hdiutil convert "$RW_DMG" \
+            -format UDZO \
+            -o "$DMG_PATH"
+
+          rm -f "$RW_DMG"
+
+          echo "path=$DMG_PATH" >> "$GITHUB_OUTPUT"
+          echo "name=$DMG_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Notarize DMG
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          SUBMIT_OUTPUT=$(xcrun notarytool submit "${{ steps.dmg.outputs.path }}" \
+            --apple-id "$APPLE_ID" \
+            --password "$APPLE_ID_PASSWORD" \
+            --team-id "$APPLE_TEAM_ID" \
+            --wait 2>&1) || true
+
+          echo "$SUBMIT_OUTPUT"
+          SUBMISSION_ID=$(echo "$SUBMIT_OUTPUT" | grep "id:" | head -1 | awk '{print $NF}')
+
+          STATUS=$(echo "$SUBMIT_OUTPUT" | grep "status:" | tail -1 | awk '{print $NF}')
+          if [ "$STATUS" != "Accepted" ]; then
+            echo "::error::Notarization failed with status: $STATUS"
+            echo "Fetching notarization log..."
+            xcrun notarytool log "$SUBMISSION_ID" \
+              --apple-id "$APPLE_ID" \
+              --password "$APPLE_ID_PASSWORD" \
+              --team-id "$APPLE_TEAM_ID" \
+              developer_log.json 2>&1 || true
+            cat developer_log.json 2>/dev/null || echo "Could not retrieve log"
+            exit 1
+          fi
+
+      - name: Staple notarization ticket
+        run: xcrun stapler staple "${{ steps.dmg.outputs.path }}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: ${{ steps.dmg.outputs.path }}
+
+      - name: Cleanup keychain
+        if: always()
+        run: |
+          KEYCHAIN_PATH="$RUNNER_TEMP/build.keychain-db"
+
+          # Restore original keychain search list before deleting build keychain
+          if [ -f "$RUNNER_TEMP/original-keychains.txt" ]; then
+            ORIGINAL=$(cat "$RUNNER_TEMP/original-keychains.txt" | tr '|' '\n' | xargs)
+            security list-keychain -d user -s $ORIGINAL
+          fi
+
+          if [ -f "$KEYCHAIN_PATH" ]; then
+            security delete-keychain "$KEYCHAIN_PATH"
+          fi

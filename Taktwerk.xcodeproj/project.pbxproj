@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		021F0DF70B8566A0C25FE2AB /* PlistServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE621EE2D9CB7A612E93C9F3 /* PlistServiceTests.swift */; };
+		04A292A795B34DB381D3257C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD225ADD7ADB6C57C27DE351 /* SettingsView.swift */; };
+		0686313DDD45DDE52435630B /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A889C8EA59EE2FAE9CCAA0 /* JobListViewModel.swift */; };
+		1614EE7471A5C848EAF1C32B /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07EC9A406267748B97E2E3 /* StatusBadge.swift */; };
+		19BF2B747D4CD2A512E39978 /* JobRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC367DBEAE43F657DDC5A4C8 /* JobRowView.swift */; };
+		29D76C8C5661204372654318 /* PlistConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA6B9F9CD11BB6F83F4473 /* PlistConfigTests.swift */; };
+		311538FC7D2730BE45B60264 /* PlistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBCBBCF6C957AEB5F758257 /* PlistService.swift */; };
+		33A63ACE9CEB56EA31713056 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C52B30A668E314120183A07 /* ScheduleView.swift */; };
+		33DF4C43FA20EB3650CA4F39 /* LogViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120934BED8050FD84CD55C99 /* LogViewerView.swift */; };
+		4632C80E9806B288150C5B91 /* RawPlistEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D21A160E60C10F8E7D4B8B /* RawPlistEditorView.swift */; };
+		4E4F49D4DBBE5DD2B725C759 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879A7FDC2309FC0B0810B90 /* ContentView.swift */; };
+		55E89C99BF1EAFAA0724BB81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AB7F2F4260B2D1625BC6EC /* Assets.xcassets */; };
+		5A6A177C06D5D418C1A0D111 /* EnvironmentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1C0BBD88CCD74CCBDF54A1 /* EnvironmentEditorView.swift */; };
+		5DBC922EA70A723208BE9164 /* LaunchdJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD669A3DA55EE58D4E6FFE9 /* LaunchdJob.swift */; };
+		5EA6A97DE3F97DA5A306EB10 /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334047930020E8EE7B51320 /* JobDetailView.swift */; };
+		6AC060975ED5C59B19F084C0 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9653CA2D07C224AEE3411650 /* UpdateService.swift */; };
+		72D615A0BB1BF5B319108515 /* TaktwerkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F70013A2D526DBDDA7914 /* TaktwerkApp.swift */; };
+		78751BB026F74C0940B44524 /* TagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82217979F0B34156CE81F3E /* TagStore.swift */; };
+		83A3778B2AFF61A789F9155C /* SourceBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCA18D5FCA8589EA040BC7 /* SourceBadge.swift */; };
+		854F10C4BD66629D3716A761 /* UpdateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927FDEBA02D1F032CAA7E95D /* UpdateServiceTests.swift */; };
+		8552E0F285366114189E8095 /* LaunchctlServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED28F8AAF97AE5A5FD4EEC9F /* LaunchctlServiceTests.swift */; };
+		98A087721CC6081C2A9FF61A /* FilterChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBB8BB4C65DA015915ACCA /* FilterChip.swift */; };
+		9C66A82D882503CED5C3F510 /* ScheduleEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3577949C13B974128369DF5 /* ScheduleEditorView.swift */; };
+		9F7BE238BBBCFD92BAD37F4C /* TaktwerkHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = AF496EC8D8E614B2407C1D1E /* TaktwerkHelp.help */; };
+		A444F9E3C70B92F641ACF64E /* Date+NextRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4425A40B2A23B9E1F217E867 /* Date+NextRun.swift */; };
+		B3E76D301055F8294CFFE5E8 /* JobEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BDA006E55F6CB08B429447 /* JobEditorViewModel.swift */; };
+		B57CE78D0B971CEA227B9B9E /* JobFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F49CDB7557D8B61F5A1EC /* JobFilter.swift */; };
+		C373A697AE4A85AC18BC6D6B /* PlistConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FB9FE0E314C5CA4AC43D86 /* PlistConfig.swift */; };
+		D51E5A7B18506176788694E3 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11F976CD03FA6F5536D4D6 /* ErrorAlert.swift */; };
+		D82EAA6AA3327887B38148F5 /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37F75FBB021738229F6CB78 /* JobDetailViewModel.swift */; };
+		DAD8BDB895B23C2F992EE991 /* PlistConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3850A4CB5BBBD10EB9C2BF /* PlistConfigView.swift */; };
+		DF310FD623403A41D8E6CF65 /* LogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985CCC91811BD4E2DEC4AE8D /* LogService.swift */; };
+		E62F7B82184F8FC75BAAFA0A /* JobEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24F611333C471598C1917E2 /* JobEditorView.swift */; };
+		EA978C5B5F3D11533F505C56 /* JobListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70120A61F1A36FE633197E3 /* JobListView.swift */; };
+		FE2408D430F44E12B34DA758 /* LaunchctlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF594CF12383E6EF2AF3183B /* LaunchctlService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CD48C19DC575A771D71E789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C96C0E0C90434F946DA8F519 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9078C53E41DE2AB5B960907B;
+			remoteInfo = Taktwerk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		120934BED8050FD84CD55C99 /* LogViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewerView.swift; sourceTree = "<group>"; };
+		21FB9FE0E314C5CA4AC43D86 /* PlistConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistConfig.swift; sourceTree = "<group>"; };
+		2D2F49CDB7557D8B61F5A1EC /* JobFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFilter.swift; sourceTree = "<group>"; };
+		439F70013A2D526DBDDA7914 /* TaktwerkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaktwerkApp.swift; sourceTree = "<group>"; };
+		4425A40B2A23B9E1F217E867 /* Date+NextRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+NextRun.swift"; sourceTree = "<group>"; };
+		5879A7FDC2309FC0B0810B90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5CD669A3DA55EE58D4E6FFE9 /* LaunchdJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchdJob.swift; sourceTree = "<group>"; };
+		5EBCBBCF6C957AEB5F758257 /* PlistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistService.swift; sourceTree = "<group>"; };
+		64A72D674FC53D3A65DCF86B /* Taktwerk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taktwerk.entitlements; sourceTree = "<group>"; };
+		6F1C0BBD88CCD74CCBDF54A1 /* EnvironmentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentEditorView.swift; sourceTree = "<group>"; };
+		71D21A160E60C10F8E7D4B8B /* RawPlistEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawPlistEditorView.swift; sourceTree = "<group>"; };
+		82AB7F2F4260B2D1625BC6EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85DA6B9F9CD11BB6F83F4473 /* PlistConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistConfigTests.swift; sourceTree = "<group>"; };
+		8C52B30A668E314120183A07 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		8CDCA18D5FCA8589EA040BC7 /* SourceBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceBadge.swift; sourceTree = "<group>"; };
+		927FDEBA02D1F032CAA7E95D /* UpdateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateServiceTests.swift; sourceTree = "<group>"; };
+		9334047930020E8EE7B51320 /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
+		9653CA2D07C224AEE3411650 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
+		985CCC91811BD4E2DEC4AE8D /* LogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogService.swift; sourceTree = "<group>"; };
+		9B11F976CD03FA6F5536D4D6 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		9CD9B368BCC81CFF0BCACB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A70120A61F1A36FE633197E3 /* JobListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListView.swift; sourceTree = "<group>"; };
+		A9A889C8EA59EE2FAE9CCAA0 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
+		AD225ADD7ADB6C57C27DE351 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AF496EC8D8E614B2407C1D1E /* TaktwerkHelp.help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TaktwerkHelp.help; path = Taktwerk/Resources/TaktwerkHelp.help; sourceTree = SOURCE_ROOT; };
+		B37F75FBB021738229F6CB78 /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		B7BBB8BB4C65DA015915ACCA /* FilterChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChip.swift; sourceTree = "<group>"; };
+		BA07EC9A406267748B97E2E3 /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
+		BC367DBEAE43F657DDC5A4C8 /* JobRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRowView.swift; sourceTree = "<group>"; };
+		BD3850A4CB5BBBD10EB9C2BF /* PlistConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistConfigView.swift; sourceTree = "<group>"; };
+		C441E79E33C1A78CB0F2A5D4 /* Taktwerk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taktwerk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82217979F0B34156CE81F3E /* TagStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStore.swift; sourceTree = "<group>"; };
+		CF594CF12383E6EF2AF3183B /* LaunchctlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchctlService.swift; sourceTree = "<group>"; };
+		D3577949C13B974128369DF5 /* ScheduleEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditorView.swift; sourceTree = "<group>"; };
+		E24F611333C471598C1917E2 /* JobEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEditorView.swift; sourceTree = "<group>"; };
+		ED28F8AAF97AE5A5FD4EEC9F /* LaunchctlServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchctlServiceTests.swift; sourceTree = "<group>"; };
+		F4BDA006E55F6CB08B429447 /* JobEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEditorViewModel.swift; sourceTree = "<group>"; };
+		FB9511164BDD01B653D53C8F /* TaktwerkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaktwerkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE621EE2D9CB7A612E93C9F3 /* PlistServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistServiceTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0075FA6051D297C2CBFF072D /* TaktwerkTests */ = {
+			isa = PBXGroup;
+			children = (
+				148C0E5012FA549FC16862EC /* Models */,
+				0335B0BDB13F7475E3569D26 /* Services */,
+			);
+			path = TaktwerkTests;
+			sourceTree = "<group>";
+		};
+		0335B0BDB13F7475E3569D26 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ED28F8AAF97AE5A5FD4EEC9F /* LaunchctlServiceTests.swift */,
+				FE621EE2D9CB7A612E93C9F3 /* PlistServiceTests.swift */,
+				927FDEBA02D1F032CAA7E95D /* UpdateServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0EFB098DE110050A58228252 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AD225ADD7ADB6C57C27DE351 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		138C2B8805D4304302FD0810 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C441E79E33C1A78CB0F2A5D4 /* Taktwerk.app */,
+				FB9511164BDD01B653D53C8F /* TaktwerkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148C0E5012FA549FC16862EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85DA6B9F9CD11BB6F83F4473 /* PlistConfigTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2EBA5C71A0A019257EEBEB0D /* JobEditor */ = {
+			isa = PBXGroup;
+			children = (
+				E24F611333C471598C1917E2 /* JobEditorView.swift */,
+				F4BDA006E55F6CB08B429447 /* JobEditorViewModel.swift */,
+				539B570AAC21711BEACAEE50 /* Components */,
+			);
+			path = JobEditor;
+			sourceTree = "<group>";
+		};
+		37E8FAFE0E0B00ECF92438FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF496EC8D8E614B2407C1D1E /* TaktwerkHelp.help */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		539B570AAC21711BEACAEE50 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6F1C0BBD88CCD74CCBDF54A1 /* EnvironmentEditorView.swift */,
+				71D21A160E60C10F8E7D4B8B /* RawPlistEditorView.swift */,
+				D3577949C13B974128369DF5 /* ScheduleEditorView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5C16CB1DFA670E6F80F27D10 = {
+			isa = PBXGroup;
+			children = (
+				61C992F152D6CBB8220D93BC /* Taktwerk */,
+				0075FA6051D297C2CBFF072D /* TaktwerkTests */,
+				138C2B8805D4304302FD0810 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61C992F152D6CBB8220D93BC /* Taktwerk */ = {
+			isa = PBXGroup;
+			children = (
+				82AB7F2F4260B2D1625BC6EC /* Assets.xcassets */,
+				5879A7FDC2309FC0B0810B90 /* ContentView.swift */,
+				9CD9B368BCC81CFF0BCACB32 /* Info.plist */,
+				64A72D674FC53D3A65DCF86B /* Taktwerk.entitlements */,
+				439F70013A2D526DBDDA7914 /* TaktwerkApp.swift */,
+				F1062704C19D390E1C5DB045 /* Features */,
+				A5739C423D472CD8DC596BC7 /* Models */,
+				37E8FAFE0E0B00ECF92438FD /* Resources */,
+				C49989B3F1B535B791F0D9F8 /* Services */,
+				B97ED51226F2D208BD30EA66 /* Shared */,
+			);
+			path = Taktwerk;
+			sourceTree = "<group>";
+		};
+		670D9CB12190C8E2BE14A4E3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				120934BED8050FD84CD55C99 /* LogViewerView.swift */,
+				BD3850A4CB5BBBD10EB9C2BF /* PlistConfigView.swift */,
+				8C52B30A668E314120183A07 /* ScheduleView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		79DDCBA65569FA0C2EC8D77A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4425A40B2A23B9E1F217E867 /* Date+NextRun.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		81488BEFF4F7B1289CEA10C4 /* JobList */ = {
+			isa = PBXGroup;
+			children = (
+				A70120A61F1A36FE633197E3 /* JobListView.swift */,
+				A9A889C8EA59EE2FAE9CCAA0 /* JobListViewModel.swift */,
+				BC367DBEAE43F657DDC5A4C8 /* JobRowView.swift */,
+			);
+			path = JobList;
+			sourceTree = "<group>";
+		};
+		A5739C423D472CD8DC596BC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2D2F49CDB7557D8B61F5A1EC /* JobFilter.swift */,
+				5CD669A3DA55EE58D4E6FFE9 /* LaunchdJob.swift */,
+				21FB9FE0E314C5CA4AC43D86 /* PlistConfig.swift */,
+				C82217979F0B34156CE81F3E /* TagStore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B97ED51226F2D208BD30EA66 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				79DDCBA65569FA0C2EC8D77A /* Extensions */,
+				D35A8DBD94BABA46C21E8679 /* Modifiers */,
+				DC439F7F0276A126262508D1 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C1DD31F3835B6FBBE38B6F1A /* JobDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9334047930020E8EE7B51320 /* JobDetailView.swift */,
+				B37F75FBB021738229F6CB78 /* JobDetailViewModel.swift */,
+				670D9CB12190C8E2BE14A4E3 /* Components */,
+			);
+			path = JobDetail;
+			sourceTree = "<group>";
+		};
+		C49989B3F1B535B791F0D9F8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CF594CF12383E6EF2AF3183B /* LaunchctlService.swift */,
+				985CCC91811BD4E2DEC4AE8D /* LogService.swift */,
+				5EBCBBCF6C957AEB5F758257 /* PlistService.swift */,
+				9653CA2D07C224AEE3411650 /* UpdateService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D35A8DBD94BABA46C21E8679 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				9B11F976CD03FA6F5536D4D6 /* ErrorAlert.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		DC439F7F0276A126262508D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B7BBB8BB4C65DA015915ACCA /* FilterChip.swift */,
+				8CDCA18D5FCA8589EA040BC7 /* SourceBadge.swift */,
+				BA07EC9A406267748B97E2E3 /* StatusBadge.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F1062704C19D390E1C5DB045 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C1DD31F3835B6FBBE38B6F1A /* JobDetail */,
+				2EBA5C71A0A019257EEBEB0D /* JobEditor */,
+				81488BEFF4F7B1289CEA10C4 /* JobList */,
+				0EFB098DE110050A58228252 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9078C53E41DE2AB5B960907B /* Taktwerk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEEBA33048D19A17346316C4 /* Build configuration list for PBXNativeTarget "Taktwerk" */;
+			buildPhases = (
+				34C8AE17EA5BFB1FC0DED0A8 /* Sources */,
+				049C46D1A4B944ED184AF149 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taktwerk;
+			packageProductDependencies = (
+			);
+			productName = Taktwerk;
+			productReference = C441E79E33C1A78CB0F2A5D4 /* Taktwerk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96421C88B98EC67CC3022443 /* TaktwerkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEA56CFD667E976EE3C427E1 /* Build configuration list for PBXNativeTarget "TaktwerkTests" */;
+			buildPhases = (
+				18F1253BE735B831018B7998 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4218812A211F857F1367E5F7 /* PBXTargetDependency */,
+			);
+			name = TaktwerkTests;
+			packageProductDependencies = (
+			);
+			productName = TaktwerkTests;
+			productReference = FB9511164BDD01B653D53C8F /* TaktwerkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C96C0E0C90434F946DA8F519 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					9078C53E41DE2AB5B960907B = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 97F5DF2CCE90696B71F5F0B4 /* Build configuration list for PBXProject "Taktwerk" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5C16CB1DFA670E6F80F27D10;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 138C2B8805D4304302FD0810 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9078C53E41DE2AB5B960907B /* Taktwerk */,
+				96421C88B98EC67CC3022443 /* TaktwerkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		049C46D1A4B944ED184AF149 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E89C99BF1EAFAA0724BB81 /* Assets.xcassets in Resources */,
+				9F7BE238BBBCFD92BAD37F4C /* TaktwerkHelp.help in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18F1253BE735B831018B7998 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8552E0F285366114189E8095 /* LaunchctlServiceTests.swift in Sources */,
+				29D76C8C5661204372654318 /* PlistConfigTests.swift in Sources */,
+				021F0DF70B8566A0C25FE2AB /* PlistServiceTests.swift in Sources */,
+				854F10C4BD66629D3716A761 /* UpdateServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34C8AE17EA5BFB1FC0DED0A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E4F49D4DBBE5DD2B725C759 /* ContentView.swift in Sources */,
+				A444F9E3C70B92F641ACF64E /* Date+NextRun.swift in Sources */,
+				5A6A177C06D5D418C1A0D111 /* EnvironmentEditorView.swift in Sources */,
+				D51E5A7B18506176788694E3 /* ErrorAlert.swift in Sources */,
+				98A087721CC6081C2A9FF61A /* FilterChip.swift in Sources */,
+				5EA6A97DE3F97DA5A306EB10 /* JobDetailView.swift in Sources */,
+				D82EAA6AA3327887B38148F5 /* JobDetailViewModel.swift in Sources */,
+				E62F7B82184F8FC75BAAFA0A /* JobEditorView.swift in Sources */,
+				B3E76D301055F8294CFFE5E8 /* JobEditorViewModel.swift in Sources */,
+				B57CE78D0B971CEA227B9B9E /* JobFilter.swift in Sources */,
+				EA978C5B5F3D11533F505C56 /* JobListView.swift in Sources */,
+				0686313DDD45DDE52435630B /* JobListViewModel.swift in Sources */,
+				19BF2B747D4CD2A512E39978 /* JobRowView.swift in Sources */,
+				FE2408D430F44E12B34DA758 /* LaunchctlService.swift in Sources */,
+				5DBC922EA70A723208BE9164 /* LaunchdJob.swift in Sources */,
+				DF310FD623403A41D8E6CF65 /* LogService.swift in Sources */,
+				33DF4C43FA20EB3650CA4F39 /* LogViewerView.swift in Sources */,
+				C373A697AE4A85AC18BC6D6B /* PlistConfig.swift in Sources */,
+				DAD8BDB895B23C2F992EE991 /* PlistConfigView.swift in Sources */,
+				311538FC7D2730BE45B60264 /* PlistService.swift in Sources */,
+				4632C80E9806B288150C5B91 /* RawPlistEditorView.swift in Sources */,
+				9C66A82D882503CED5C3F510 /* ScheduleEditorView.swift in Sources */,
+				33A63ACE9CEB56EA31713056 /* ScheduleView.swift in Sources */,
+				04A292A795B34DB381D3257C /* SettingsView.swift in Sources */,
+				83A3778B2AFF61A789F9155C /* SourceBadge.swift in Sources */,
+				1614EE7471A5C848EAF1C32B /* StatusBadge.swift in Sources */,
+				78751BB026F74C0940B44524 /* TagStore.swift in Sources */,
+				72D615A0BB1BF5B319108515 /* TaktwerkApp.swift in Sources */,
+				6AC060975ED5C59B19F084C0 /* UpdateService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4218812A211F857F1367E5F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9078C53E41DE2AB5B960907B /* Taktwerk */;
+			targetProxy = 5CD48C19DC575A771D71E789 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		28606BED7BD76823E3293D63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		3019CE68C65E8AA7BF56ADC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		323EC810080E73D49FBB6431 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Taktwerk/Taktwerk.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Taktwerk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olohmann.Taktwerk;
+				PRODUCT_NAME = Taktwerk;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		64D12E85E61A511552A0DC66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.olohmann.TaktwerkTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taktwerk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Taktwerk";
+			};
+			name = Debug;
+		};
+		6C71A8C0647235F92CD3433E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Taktwerk/Taktwerk.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Taktwerk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olohmann.Taktwerk;
+				PRODUCT_NAME = Taktwerk;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7A66898AAA36EE996BF586EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.olohmann.TaktwerkTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taktwerk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Taktwerk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		97F5DF2CCE90696B71F5F0B4 /* Build configuration list for PBXProject "Taktwerk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28606BED7BD76823E3293D63 /* Debug */,
+				3019CE68C65E8AA7BF56ADC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CEA56CFD667E976EE3C427E1 /* Build configuration list for PBXNativeTarget "TaktwerkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64D12E85E61A511552A0DC66 /* Debug */,
+				7A66898AAA36EE996BF586EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DEEBA33048D19A17346316C4 /* Build configuration list for PBXNativeTarget "Taktwerk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				323EC810080E73D49FBB6431 /* Debug */,
+				6C71A8C0647235F92CD3433E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C96C0E0C90434F946DA8F519 /* Project object */;
+}

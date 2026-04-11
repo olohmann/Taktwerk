@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="How to browse and filter launchd jobs in Taktwerk.">
+    <title>Browsing &amp; Filtering Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="breadcrumb"><a href="index.html">Taktwerk Help</a> &rsaquo; Browsing &amp; Filtering</div>
+
+    <h1>Browsing &amp; Filtering Jobs</h1>
+
+    <h2>The Sidebar</h2>
+    <p>The sidebar shows all launchd jobs found on your Mac. Each row displays the job label, its current status (loaded or not), and any assigned tags.</p>
+
+    <h2>Source Filter</h2>
+    <p>Filter jobs by where they come from:</p>
+    <ul>
+        <li><strong>All</strong> — Show every job from all directories.</li>
+        <li><strong>User Agents</strong> — Jobs in <code>~/Library/LaunchAgents/</code>.</li>
+        <li><strong>Global Agents</strong> — Jobs in <code>/Library/LaunchAgents/</code>.</li>
+        <li><strong>Global Daemons</strong> — Jobs in <code>/Library/LaunchDaemons/</code>.</li>
+    </ul>
+    <p>Change the source using the picker in the toolbar.</p>
+
+    <h2>Tag Filter</h2>
+    <p>If you've assigned <a href="tags.html">tags</a> to jobs, you can filter the list to show only jobs with a specific tag. Select a tag from the tag picker in the toolbar.</p>
+
+    <h2>Filter Status Bar</h2>
+    <p>When any filter is active, a status bar appears at the bottom of the sidebar showing colored chips for each active filter. Click the <strong>×</strong> on a chip to remove that filter, or click <strong>Clear</strong> to reset all filters.</p>
+
+    <h2>Searching</h2>
+    <p>Use the search field at the top of the sidebar to find jobs by label. The search filters the current view in real time.</p>
+
+    <h2>Refreshing</h2>
+    <p>To re-scan all launchd directories and pick up external changes (e.g., files added or removed outside Taktwerk), use <kbd>⌘</kbd><kbd>R</kbd> or click the refresh button in the toolbar.</p>
+
+    <div class="nav">
+        <a href="index.html">← Back to Taktwerk Help</a> · <a href="editing.html">Next: Editing Plist Files →</a>
+    </div>
+</body>
+</html>
