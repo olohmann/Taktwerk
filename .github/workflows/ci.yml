@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: [self-hosted, macOS, ARM64]
+    timeout-minutes: 15
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -project Taktwerk.xcodeproj \
+            -scheme Taktwerk \
+            -configuration Debug \
+            -destination "platform=macOS,arch=arm64" \
+            -quiet \
+            build
+
+      - name: Test
+        run: |
+          xcodebuild \
+            -project Taktwerk.xcodeproj \
+            -scheme Taktwerk \
+            -configuration Debug \
+            -destination "platform=macOS,arch=arm64" \
+            -quiet \
+            test
