@@ -1,0 +1,23 @@
+last_session
+
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+build/
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Node (for skills installer)
+node_modules/
+
+# Skills lock
+skills-lock.json

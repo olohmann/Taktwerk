@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="How to load and unload launchd jobs using Taktwerk.">
+    <title>Loading &amp; Unloading Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="breadcrumb"><a href="index.html">Taktwerk Help</a> &rsaquo; Loading &amp; Unloading Jobs</div>
+
+    <h1>Loading &amp; Unloading Jobs</h1>
+
+    <h2>What Does Loading Mean?</h2>
+    <p>A <strong>loaded</strong> job is registered with launchd and can be started by the system. An <strong>unloaded</strong> job exists as a plist file but is not active.</p>
+
+    <h2>Loading a Job</h2>
+    <p>Select a job in the sidebar, then click <strong>Load</strong> in the detail pane. Taktwerk runs <code>launchctl load</code> to register the job with launchd.</p>
+
+    <h2>Unloading a Job</h2>
+    <p>Select a loaded job and click <strong>Unload</strong>. This runs <code>launchctl unload</code> to deregister the job. The plist file remains on disk.</p>
+
+    <h2>Job Status</h2>
+    <p>The sidebar shows the current status of each job:</p>
+    <ul>
+        <li><strong>Loaded</strong> — The job is registered with launchd and may be running.</li>
+        <li><strong>Not Loaded</strong> — The plist file exists but the job is not registered.</li>
+    </ul>
+
+    <div class="tip">
+        <strong>Note:</strong> Loading and unloading global agents and daemons may require administrator privileges. Taktwerk uses your user's launchd domain for user agents.
+    </div>
+
+    <h2>Run At Load</h2>
+    <p>Jobs with <code>RunAtLoad</code> set to <code>true</code> in their plist will start immediately when loaded. You can change this setting in the <a href="editing.html">plist editor</a>.</p>
+
+    <div class="nav">
+        <a href="settings.html">← Settings</a> · <a href="index.html">Back to Taktwerk Help</a>
+    </div>
+</body>
+</html>
