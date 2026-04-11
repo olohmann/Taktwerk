@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="anchors">
+    <meta name="keywords" content="index">
+    <title>Taktwerk Help</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1><img src="icon.png" alt="Taktwerk" width="64" height="64" style="vertical-align: middle; margin-right: 12px;">Taktwerk Help</h1>
+    <p class="subtitle">A native macOS app for managing launchd agents and daemons.</p>
+
+    <ul class="topic-list">
+        <li>
+            <a class="topic-card" href="browsing.html">
+                <span class="title">Browsing &amp; Filtering Jobs</span>
+                <span class="desc">Navigate launchd sources, search jobs, and use filters to find what you need.</span>
+            </a>
+        </li>
+        <li>
+            <a class="topic-card" href="editing.html">
+                <span class="title">Editing Plist Files</span>
+                <span class="desc">Use the visual form editor or raw XML editor with live validation.</span>
+            </a>
+        </li>
+        <li>
+            <a class="topic-card" href="tags.html">
+                <span class="title">Organizing with Tags</span>
+                <span class="desc">Create colored tags, assign them to jobs, and filter by tag.</span>
+            </a>
+        </li>
+        <li>
+            <a class="topic-card" href="settings.html">
+                <span class="title">Settings &amp; Preferences</span>
+                <span class="desc">Configure default filters, manage tag definitions, and customize your experience.</span>
+            </a>
+        </li>
+        <li>
+            <a class="topic-card" href="actions.html">
+                <span class="title">Loading &amp; Unloading Jobs</span>
+                <span class="desc">Control launchd jobs directly from the app — load, unload, and check status.</span>
+            </a>
+        </li>
+    </ul>
+
+    <h2>Getting Started</h2>
+    <p>Taktwerk scans all standard launchd directories on your Mac and displays every agent and daemon it finds. Use the sidebar to browse jobs, the detail pane to inspect them, and the editor to make changes.</p>
+
+    <div class="tip">
+        <strong>Tip:</strong> Use <kbd>⌘</kbd><kbd>R</kbd> to refresh the job list after making changes outside the app.
+    </div>
+
+    <h2>Launchd Directories</h2>
+    <p>Taktwerk monitors these standard macOS directories:</p>
+    <ul>
+        <li><strong>User Agents</strong> — <code>~/Library/LaunchAgents/</code></li>
+        <li><strong>Global Agents</strong> — <code>/Library/LaunchAgents/</code></li>
+        <li><strong>Global Daemons</strong> — <code>/Library/LaunchDaemons/</code></li>
+    </ul>
+</body>
+</html>
