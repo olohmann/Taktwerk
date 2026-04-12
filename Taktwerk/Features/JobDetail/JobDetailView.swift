@@ -2,6 +2,7 @@ import SwiftUI
 
 struct JobDetailView: View {
     let plistPath: String
+    var refreshTrigger: Int = 0
     var onEdit: (LaunchdJob) -> Void
     var onDeleted: () -> Void
 
@@ -37,7 +38,7 @@ struct JobDetailView: View {
                 )
             }
         }
-        .task(id: plistPath) {
+        .task(id: "\(plistPath)-\(refreshTrigger)") {
             await viewModel.loadDetail(plistPath: plistPath)
         }
         .errorAlert($viewModel.error)

@@ -13,7 +13,7 @@ struct SettingsView: View {
                     Label("Tags", systemImage: "tag")
                 }
         }
-        .frame(width: 480, height: 400)
+        .frame(width: 480, height: 480)
     }
 }
 
@@ -22,7 +22,26 @@ struct SettingsView: View {
 struct GeneralSettingsTab: View {
     @AppStorage("defaultSourceFilter") private var defaultSourceFilter: String = SourceFilter.all.rawValue
     @AppStorage("defaultTagFilter") private var defaultTagFilter: String = ""
+    @AppStorage("autoRefreshInterval") private var autoRefreshInterval: Int = 60
+    @AppStorage("logTailLines") private var logTailLines: Int = 1000
     private let tagStore = TagStore.shared
+
+    private let refreshOptions: [(String, Int)] = [
+        ("Off", 0),
+        ("15 seconds", 15),
+        ("30 seconds", 30),
+        ("1 minute", 60),
+        ("2 minutes", 120),
+        ("5 minutes", 300),
+    ]
+
+    private let tailOptions: [(String, Int)] = [
+        ("200 lines", 200),
+        ("500 lines", 500),
+        ("1,000 lines", 1000),
+        ("2,000 lines", 2000),
+        ("5,000 lines", 5000),
+    ]
 
     var body: some View {
         Form {
@@ -43,6 +62,22 @@ struct GeneralSettingsTab: View {
                                 .foregroundStyle(tag.color)
                                 .tag(tag.id)
                         }
+                    }
+                }
+            }
+
+            Section("Auto-Refresh") {
+                Picker("Refresh interval", selection: $autoRefreshInterval) {
+                    ForEach(refreshOptions, id: \.1) { label, value in
+                        Text(label).tag(value)
+                    }
+                }
+            }
+
+            Section("Logs") {
+                Picker("Log tail length", selection: $logTailLines) {
+                    ForEach(tailOptions, id: \.1) { label, value in
+                        Text(label).tag(value)
                     }
                 }
             }

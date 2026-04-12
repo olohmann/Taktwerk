@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 struct LogViewerView: View {
     let config: PlistConfig
@@ -7,6 +8,7 @@ struct LogViewerView: View {
     @State private var logContent = ""
     @State private var modifiedAt: Date?
     @State private var error: String?
+    @AppStorage("logTailLines") private var logTailLines: Int = 1000
 
     enum LogTab: String, CaseIterable {
         case stdout = "Stdout"
@@ -48,11 +50,19 @@ struct LogViewerView: View {
 
                 if let path = currentPath {
                     Menu {
-                        Button("Clear Log") {
-                            Task { await clearLog(path: path) }
+                        Button("Copy Log Path") {
+                            NSPasteboard.general.clearContents()
+                            NSPasteboard.general.setString(path, forType: .string)
+                        }
+                        Button("Reveal in Finder") {
+                            Task { await LogService.shared.revealInFinder(path: path) }
                         }
                         Button("Open in Editor") {
                             Task { await LogService.shared.openInEditor(path: path) }
+                        }
+                        Divider()
+                        Button("Clear Log") {
+                            Task { await clearLog(path: path) }
                         }
                     } label: {
                         Label("More", systemImage: "ellipsis.circle")
@@ -88,7 +98,7 @@ struct LogViewerView: View {
                     .foregroundStyle(.tertiary)
             }
         }
-        .task(id: selectedTab) {
+        .task(id: "\(config.standardOutPath ?? "")-\(config.standardErrorPath ?? "")-\(selectedTab)") {
             await loadLog()
         }
         .errorAlert($error)
@@ -97,13 +107,12 @@ struct LogViewerView: View {
     private func loadLog() async {
         guard let path = currentPath else { return }
         do {
-            let result = try await LogService.shared.readLog(at: path, tailLines: 200)
+            let result = try await LogService.shared.readLog(at: path, tailLines: logTailLines)
             logContent = result.content
             modifiedAt = result.modifiedAt
         } catch {
             logContent = ""
             modifiedAt = nil
-            // Don't show error for missing log files — that's expected
         }
     }
 

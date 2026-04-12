@@ -5,6 +5,7 @@ struct ContentView: View {
     @State private var selectedPlistPath: String?
     @State private var showingEditor = false
     @State private var editingJob: LaunchdJob?
+    @AppStorage("autoRefreshInterval") private var autoRefreshInterval: Int = 60
 
     var body: some View {
         NavigationSplitView {
@@ -18,6 +19,7 @@ struct ContentView: View {
             if let plistPath = selectedPlistPath {
                 JobDetailView(
                     plistPath: plistPath,
+                    refreshTrigger: viewModel.refreshCounter,
                     onEdit: { job in showEditor(for: job) },
                     onDeleted: {
                         selectedPlistPath = nil
@@ -45,6 +47,14 @@ struct ContentView: View {
                     editingJob = nil
                 }
             )
+        }
+        .task(id: autoRefreshInterval) {
+            guard autoRefreshInterval > 0 else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(autoRefreshInterval))
+                guard !Task.isCancelled else { break }
+                viewModel.refresh()
+            }
         }
         .frame(minWidth: 700, minHeight: 400)
     }

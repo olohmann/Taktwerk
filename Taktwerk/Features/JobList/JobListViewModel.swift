@@ -10,6 +10,7 @@ final class JobListViewModel {
     var searchText = ""
     var sourceFilter: SourceFilter = .all
     var selectedTag: String? = nil
+    var refreshCounter = 0
 
     private let launchctl = LaunchctlService.shared
     private let plistService = PlistService.shared
@@ -98,6 +99,7 @@ final class JobListViewModel {
             self.error = error.localizedDescription
         }
         loading = false
+        refreshCounter += 1
     }
 
     // MARK: - Actions
